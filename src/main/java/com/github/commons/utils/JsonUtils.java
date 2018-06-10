@@ -2,7 +2,7 @@ package com.github.commons.utils;
 
 import java.io.IOException;
 
-import com.github.commons.exception.Atom8ValidationException;
+import com.github.commons.exception.ValidationException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -16,7 +16,7 @@ public class JsonUtils {
 		try {
 			return mapper.writeValueAsString(obj);
 		} catch (Exception e) {
-			throw new Atom8ValidationException(e.getMessage(), e);
+			throw new ValidationException(e.getMessage(), e);
 		}
 	}
 
@@ -24,7 +24,7 @@ public class JsonUtils {
 		try {
 			return mapper.readValue(fieldNodeStr, clazz);
 		} catch (IOException e) {
-			throw new Atom8ValidationException(e.getMessage(), e);
+			throw new ValidationException(e.getMessage(), e);
 		}
 	}
 
